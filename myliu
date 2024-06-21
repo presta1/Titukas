@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tavo Asmeninė Svetainė</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #3a7ca5;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #285e8e;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        footer {
+            background-color: #3a7ca5;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        /* Additional styles for sections */
+        .section {
+            margin: 20px 0;
+        }
+        .video-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .video-upload input {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mano Asmeninė Svetainė</h1>
+    </header>
+    <nav>
+        <a href="#home">Pradžia</a>
+        <a href="#about">Apie mane</a>
+        <a href="#videos">Video</a>
+        <a href="#contact">Kontaktai</a>
+    </nav>
+    <div class="container">
+        <section id="home" class="section">
+            <h2>Sveiki atvykę!</h2>
+            <p>Esu [Tavo Vardas], sveikinu jus savo asmeninėje svetainėje!</p>
+        </section>
+        <section id="about" class="section">
+            <h2>Apie mane</h2>
+            <p>Trumpas aprašymas apie tave, tavo interesus ir pasiekimus.</p>
+        </section>
+        <section id="videos" class="section">
+            <h2>Video galerija</h2>
+            <p>Čia galite peržiūrėti mano vaizdo įrašus:</p>
+            <div class="video-upload">
+                <input type="file" id="videoFile" accept="video/*">
+                <video id="videoPlayer" controls style="max-width: 100%;"></video>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Kontaktai</h2>
+            <p>Susisiekite su manimi per šią formą:</p>
+            <form>
+                <label for="name">Vardas:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">El. paštas:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Žinutė:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <input type="submit" value="Siųsti">
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2024 Tavo Vardas. Visos teisės saugomos.</p>
+    </footer>
+
+    <script>
+        document.getElementById('videoFile').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const videoPlayer = document.getElementById('videoPlayer');
+            const url = URL.createObjectURL(file);
+            videoPlayer.src = url;
+            videoPlayer.load();
+        });
+    </script>
+</body>
+</html>
